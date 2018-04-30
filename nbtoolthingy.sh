@@ -1,8 +1,10 @@
 #!/bin/sh
 set -ex
 
-./build.sh -Uu -j8 -N0 -mamd64 makewrapper
-_make=./obj/tooldir.Darwin-17.4.0-x86_64/bin/nbmake-amd64
+export TOOLDIR=/tmp/charlotte
+
+./build.sh -Uu -j8 -N0 -mamd64 -T ${TOOLDIR} makewrapper
+_make=${TOOLDIR}/bin/nbmake-amd64
 
 # blehh
 ${_make} do-top-obj do-tools-obj
@@ -13,4 +15,5 @@ ${_make} -C tools/host-mkdep install
 ${_make} -C tools/compat install
 ${_make} -C tools/binstall install
 
+# OK now we can build whatever we want
 ${_make} -C tools/mtree install
