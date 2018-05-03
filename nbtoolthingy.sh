@@ -1,7 +1,7 @@
 #!/bin/sh
 set -ex
 
-export TOOLDIR=/tmp/charlotte
+export TOOLDIR=$(pwd)/tooldir
 
 ./build.sh -Uu -j8 -N0 -mamd64 -T ${TOOLDIR} makewrapper
 _make=${TOOLDIR}/bin/nbmake-amd64
