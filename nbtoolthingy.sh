@@ -17,3 +17,11 @@ ${_make} -C tools/binstall install
 
 # OK now we can build whatever we want
 ${_make} -C tools/mtree install
+${_make} -C tools/lex install
+${_make} -C tools/yacc install
+${_make} -C tools/awk install
+${_make} -C tools/cat install
+${_make} -C tools/sed install
+${_make} -C tools/m4 install
+${_make} -C tools/pax install
+${_make} -C tools/join install
