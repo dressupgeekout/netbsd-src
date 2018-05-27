@@ -272,7 +272,7 @@ CONFIGURATION
 
                  Default: "no"
 
-     MKGAMES     Can be set to "yes' or "no". Indicates whether games will
+     MKGAMES     Can be set to "yes" or "no".  Indicates whether games will
                  be built and installed.
 
                  Default: "yes"
