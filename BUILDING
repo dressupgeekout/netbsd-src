@@ -272,6 +272,11 @@ CONFIGURATION
 
                  Default: "no"
 
+     MKGAMES     Can be set to "yes' or "no". Indicates whether games will
+                 be built and installed.
+
+                 Default: "yes"
+
      MKHTML      Can be set to "yes" or "no".  Indicates whether preformatted
                  HTML manual pages will be built and installed
 
