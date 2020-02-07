@@ -97,7 +97,7 @@ ${TARG}.txt: ${SRCS} ${TOC.txt} ${DISTRIBVERDEP}
 	${TOOL_GROFF} ${ARGS_TXT}  -mdoc      ${MAIN} > $@
 
 ${TARG}.html: ${SRCS} ${TOC.html} ${DISTRIBVERDEP}
-	${TOOL_GROFF} ${ARGS_HTML} -mdoc2html ${MAIN} > $@
+	${TOOLDIR}/bin/nbmandoc -Thtml -mdoc -Ostyle=../style.css ${MAIN} > $@
 
 ${TARG}.more: ${SRCS} ${TOC.more} ${DISTRIBVERDEP}
 	${TOOL_GROFF} ${ARGS_MORE} -mdoc      ${MAIN} > $@
