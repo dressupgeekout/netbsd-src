@@ -72,31 +72,6 @@ luaopen_usbhid(lua_State *L)
 
 	luaL_newlib(L, methods);
 
-#if 0
-
-	/* The gpio metatable */
-	if (luaL_newmetatable(L, GPIO_METATABLE)) {
-		luaL_setfuncs(L, gpio_methods, 0);
-
-		lua_pushliteral(L, "__gc");
-		lua_pushcfunction(L, gpio_close);
-		lua_settable(L, -3);
-
-		lua_pushliteral(L, "__index");
-		lua_pushvalue(L, -2);
-		lua_settable(L, -3);
-
-		lua_pushliteral(L, "__metatable");
-		lua_pushliteral(L, "must not access this metatable");
-		lua_settable(L, -3);
-	}
-	lua_pop(L, 1);
-
-	for (n = 0; gpio_constant[n].name != NULL; n++) {
-		lua_pushinteger(L, gpio_constant[n].value);
-		lua_setfield(L, -2, gpio_constant[n].name);
-	};
-#endif
 
 	return 1;
 }
