@@ -1,7 +1,7 @@
-/*	$NetBSD$ */
+/* $NetBSD$ */
 
 //#include <errno.h>
-//#include <fcntl.h>
+#include <fcntl.h>
 //#include <stdarg.h>
 //#include <stdio.h>
 //#include <string.h>
@@ -9,38 +9,70 @@
 //#include <stdlib.h>
 //#include <unistd.h>
 
+#include <usbhid.h>
+
 #include <lua.h>
 #include <lauxlib.h>
 #include <lualib.h>
 
-//#include <sys/gpio.h>
-//#include <sys/ioctl.h>
+int luaopen_usbhid(lua_State *L);
+static int luausbhid_init(lua_State *L);
+static int luausbhid_get_report_desc(lua_State *L);
+static int luausbhid_dispose_report_desc(lua_State *L);
 
+/* ********** */
+
+/*
+ * usbhid.init()
+ */
+static int
+luausbhid_init(lua_State *L)
+{
+	hid_init(NULL);
+	lua_pushnil(L);
+	return 1;
+}
+
+
+/*
+ * descr = usbhid.get_report_desc(path)
+ */
+static int
+luausbhid_get_report_desc(lua_State *L)
+{
+	const char *path = luaL_checkstring(L, 1);
+	int fd = open(path, O_RDWR);
+	report_desc_t descr = hid_get_report_desc(fd);
+	return 1;
+}
+
+
+/*
+ * usbhid.dispose_report_desc(descr)
+ */
+static int
+luausbhid_dispose_report_desc(lua_State *L)
+{
+	// hid_dispose_report_desc(descr);
+	lua_pushnil(L);
+	return 1;
+}
+
+/* ********** */
 
 int
 luaopen_usbhid(lua_State *L)
 {
-#if 0
 	static const struct luaL_Reg methods[] = {
-		{ "open",	gpio_open },
-		{ NULL,		NULL }
+		{"init", luausbhid_init},
+		{"get_report_desc", luausbhid_get_report_desc},
+		{"dispose_report_desc", luausbhid_dispose_report_desc},
+		{NULL, NULL},
 	};
-	static const struct luaL_Reg gpio_methods[] = {
-		{ "info",	gpio_info },
-		{ "close",	gpio_close },
-		{ "set",	gpio_set },
-		{ "unset",	gpio_unset },
-		{ "read",	gpio_read },
-		{ "write",	gpio_write },
-		{ "toggle",	gpio_toggle },
-		{ "attach",	gpio_attach },
-		{ NULL,		NULL }
-	};
-	int n;
 
 	luaL_newlib(L, methods);
-	luaL_setfuncs(L, gpio_methods, 0);
-	gpio_set_info(L);
+
+#if 0
 
 	/* The gpio metatable */
 	if (luaL_newmetatable(L, GPIO_METATABLE)) {
@@ -65,5 +97,6 @@ luaopen_usbhid(lua_State *L)
 		lua_setfield(L, -2, gpio_constant[n].name);
 	};
 #endif
+
 	return 1;
 }
