@@ -4,7 +4,7 @@
 
 .if ${MKPIC} != "no"
 # No support for shared libraries and pic code.
-SUBDIR+=	bozohttpd gpio sqlite syslog
+SUBDIR+=	bozohttpd gpio sqlite syslog usbhid
 .endif
 
 .include <bsd.subdir.mk>
