@@ -1,4 +1,4 @@
-#	$NetBSD: XEN3PAE_DOM0,v 1.36.4.2 2023/10/18 16:53:03 martin Exp $
+#	$NetBSD: XEN3PAE_DOM0,v 1.43 2024/04/02 22:56:50 charlotte Exp $
 #
 #	XEN3_0: Xen 3.0 domain0 kernel
 
@@ -89,6 +89,7 @@ options 	DKWEDGE_METHOD_GPT	# Supports GPT partitions as wedges
 #options 	DKWEDGE_METHOD_MBR	# Support MBR partitions as wedges
 options 	DKWEDGE_METHOD_APPLE	# Support Apple partitions as wedges
 #options 	DKWEDGE_METHOD_RDB	# Support RDB partitions as wedges
+#options 	DKWEDGE_METHOD_TOS	# Support Atari "TOS" partitions as wedges
 
 # File systems
 file-system	FFS		# UFS
