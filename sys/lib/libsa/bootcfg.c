@@ -251,6 +251,8 @@ perform_bootcfg(const char *conf, bootcfg_command command, const off_t maxsz)
 			}
 		} else if (!strncmp(key, "clear", 5)) {
 			bootcfg_info.clear = !!atoi(value);
+		else if (!strncmp(key, "splash", 6)) {
+			bootcfg_info.splash = value;
 		} else if (!strncmp(key, BOOTCFG_CMD_USERCONF, 8)) {
 			command(BOOTCFG_CMD_USERCONF, value);
 		} else {

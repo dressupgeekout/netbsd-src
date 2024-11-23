@@ -356,6 +356,10 @@ boot2(int biosdev, uint64_t biossector)
 		print_bootcfg_banner(bootprog_name, bootprog_rev);
 	}
 
+	/* Set up splash screen, if applicable */
+	if (bootcfg_info.splash)
+		splash_add(bootcfg_info.splash)
+
 	/* Display the menu, if applicable */
 	twiddle_toggle = 0;
 	if (bootcfg_info.nummenu > 0) {
