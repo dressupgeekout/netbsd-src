@@ -384,7 +384,7 @@ main(void)
 #endif
 
 
-#if defined(SPLASHSCREEN) && defined(SPLASHSCREEN_IMAGE)
+#if defined(SPLASHSCREEN) && defined(makeoptions_SPLASHSCREEN_IMAGE)
 	size_t splash_size = (&_binary_splash_image_end -
 	    &_binary_splash_image_start) * sizeof(void *);
 	splash_setimage(&_binary_splash_image_start, splash_size);
