@@ -32,7 +32,6 @@
 #define BOOTCFG_FILENAME "boot.cfg"
 #define BOOTCFG_MAXMENU	 20
 #define BOOTCFG_MAXBANNER 12
-#define BOOTCFG_MAXSPLASH	80
 
 #define BOOTCFG_CMD_LOAD	  "load"
 #define BOOTCFG_CMD_USERCONF	  "userconf"
@@ -50,7 +49,7 @@ struct bootcfg_def {
 	int timeout;		 		/* Timeout in seconds */
 	int menuformat;				/* Letters instead of numbers */
 	int clear;				/* Clear the screen? */
-	char *splash[BOOTCFG_MAXSPLASH];	/* Display given image if possible */
+	char *splash;				/* Display given image if possible */
 };
 extern struct bootcfg_def bootcfg_info;
 

@@ -358,7 +358,7 @@ boot2(int biosdev, uint64_t biossector)
 
 	/* Set up splash screen, if applicable */
 	if (bootcfg_info.splash)
-		splash_add(bootcfg_info.splash)
+		splash_add(bootcfg_info.splash);
 
 	/* Display the menu, if applicable */
 	twiddle_toggle = 0;
