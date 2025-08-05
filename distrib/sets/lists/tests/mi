@@ -6742,6 +6742,10 @@
 ./usr/tests/usr.bin/vmstat/Atffile			tests-usr.bin-tests	compattestfile,atf
 ./usr/tests/usr.bin/vmstat/Kyuafile			tests-usr.bin-tests	compattestfile,atf,kyua
 ./usr/tests/usr.bin/vmstat/t_vmstat			tests-usr.bin-tests	compattestfile,atf
+./usr/tests/usr.bin/xinstall				tests-usr.bin-tests	compattestfile,atf
+./usr/tests/usr.bin/xinstall/Atffile			tests-usr.bin-tests	compattestfile,atf
+./usr/tests/usr.bin/xinstall/Kyuafile			tests-usr.bin-tests	compattestfile,atf,kyua
+./usr/tests/usr.bin/xinstall/t_install			tests-usr.bin-tests	compattestfile,atf
 ./usr/tests/usr.bin/xlint				tests-usr.bin-tests	compattestfile,atf
 ./usr/tests/usr.bin/xlint/Atffile			tests-usr.bin-tests	compattestfile,atf
 ./usr/tests/usr.bin/xlint/Kyuafile			tests-usr.bin-tests	compattestfile,atf,kyua
